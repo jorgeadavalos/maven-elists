@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" >
+<head>
+    <link rel="stylesheet" href="includes/css/scrollNav.css" type="text/css"></link>
+    <link rel="stylesheet" href="includes/css/table-style.css" type="text/css"></link>
+    <link rel="stylesheet" href="includes/css/style.css" type="text/css"></link>
+    <link rel="stylesheet" href="includes/css/modal.css" type="text/css"></link>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="includes/js/shoplist.js"></script>
+    <script type="text/javascript" src="includes/js/shoplistSupport.js"></script>
+    <script type="text/javascript" src="includes/js/ajax.js"></script>
+    <script>
+	    function selectFromClipboard() {
+	    	var selectedItems = document.getElementById("clipboard");
+	       	selectedItems.select();
+	       	selectedItems.setSelectionRange(0, 99999);
+	    	document.execCommand("copy");
+	    }
+    </script>
+</head>  
+<body onload='showNav("storeNavigation.xhtml");getJSONObj();initShoppingList("#{masterListBean.storename}")'> 
+	<h:form id="activeLists" styleClass="menuCol noborder"> 
+		<div id="contentframe" class="center">
+		  <h2>List name "#{masterListBean.shoplist.listname}"</h2> 
+		  <h2 id="storeTitle">#{masterListBean.storename}</h2><br/>
+		  
+		  search :   <input type="text" id="chooseItem" oninput='return initStoreList("")'/>
+
+		  <h4 id="infoMessage">#{familyBean.infomsg}<br/>#{masterListBean.infomsg}</h4> 
+		  
+		  <table id="salesbutton" style="display:none">
+		  <tr>
+		    <td><button onclick='return cleanSalesInfo()'>ignore</button></td>
+			<td>or</td>
+			<td><button onclick='return showSalesInfo()'>show</button></td>
+			<td>sale list</td>
+			</tr>
+		  </table>
+		  <h4>&#160;</h4>
+		  <table id="salesTable" style="display:none">
+		  </table>
+
+			<h:panelGroup>
+				<b><h:commandButton value="clear items" onclick="return bldJSONToClear('jsonarray')" actionListener="#{masterListBean.updateCheckedList}" action="#{masterListBean.navigation}" />
+				<a style="padding-left: 30px;" href="javascript:bldTempItem()">Build temp Item</a></b>
+				<!--div class="tooltip">
+					<a style="padding-left: 30px;" href="javascript:showSelectedItems()">Copy selected Item(s)
+					  <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+					</a>
+					<button id="trigger">Copy text</button>
+				</div-->
+				<span style="padding-left: 30px;">
+					<button id="onlySelected" onclick="return displayMyModal3()"><b>Display checked</b></button>
+				</span>
+	        </h:panelGroup>
+			<ui:include src="categoryList.xhtml"/>
+			<div id="selectList"></div>
+		</div>
+		
+		<div id="myModal" class="modal">
+		<div class="modal-content">
+		  <b>Enter item</b>
+		  <input type="text" onblur="addTempItem(this)"/><br/>
+		  <button type="button"><b>Add Item</b></button>
+		</div>
+	    </div>
+		<div id="myModal2" class="modal">		//clipboard
+		<div class="modal-content">
+		  <b>Enter item</b>
+		  <textarea id="clipboard" rows="5"/><br/>
+		  <button type="button" onclick="exitTask('myModal2')" id="modalButton"><b>exit</b></button>
+		</div>
+	    </div>
+		<div id="myModal3" class="modal">		//selectedItems
+		<div class="modal-content">
+		  <b>Display only items still selected</b><br/>
+		  <div id="myModal3List" style="overflow-y:scroll;height:300px;"></div><br/>
+		  <button type="button" onclick="exitTask('myModal3')" id="modalButton"><b>exit</b></button>
+		</div>
+	    </div>
+
+		<h:outputText id="jsonobj" value="#{masterListBean.jsonObj}" escape="false" style="display:none"/>
+		<input type="hidden" value="" id="storename" name="storename"/>
+		<input type="hidden" value="" id="jsonarray" name="jsonarray"/>
+		<input type="hidden" value="#{masterListBean.shoplist.listname}" id="listname" name="listname"/>
+		<input type="hidden" value="#{familyBean.email}" id="email" name="email"/>
+	</h:form>
+</body> 
+</html> 

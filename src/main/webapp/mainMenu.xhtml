@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" > 
+<head>
+    <link rel="stylesheet" href="includes/css/scrollNav.css" type="text/css"></link>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="includes/js/shoplist.js"></script>
+    <script type="text/javascript" src="includes/js/shoplistSupport.js"></script>
+    <script type="text/javascript" src="includes/js/ajax.js"></script>
+</head>  
+  <body onload="fadeIn()"> 
+	  <h4 id="infoMessage" style="infoMessage">#{familyBean.infomsg}<br/>#{masterListBean.infomsg}</h4> 
+	  <ui:include src="mainNavigation.xhtml"/>
+	<div id="contentframe" class="content">
+	</div>
+  </body>
+</html>

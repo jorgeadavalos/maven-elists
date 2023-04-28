@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" >
+<head>
+    <link rel="stylesheet" href="includes/css/scrollNav.css" type="text/css"></link>
+    <link rel="stylesheet" href="includes/css/table-style.css" type="text/css"></link>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="includes/js/shoplist.js"></script>
+    <script type="text/javascript" src="includes/js/shoplistSupport.js"></script>
+    <script type="text/javascript" src="includes/js/ajax.js"></script>
+</head>  
+  <body onload="fadeOut(findElement('fadeOut'));showNav();setMsg('','infoMessage')"> 
+  <h:form id="viewShopList">
+	<ui:include src="navigation.xhtml"/>
+	<div id="contentframe" class="center">
+  	<h:dataTable  align="left" value="#{masterListBean.storeShopList.keySet()}" var="store" 
+ 		styleClass="restoreBean-table"
+ 		headerClass="restoreBean-table-header"
+ 		rowClasses="restoreBean-table-odd-row,restoreBean-table-even-row"
+		border="1" cellpadding="5" cellspacing="0"
+	>
+ 		<h:column>
+ 		<f:facet name="header">store name</f:facet>
+		<span ondblclick="return getStoreItems(this)">
+			<h:outputText value="#{store}"/>
+		</span>
+ 		</h:column>
+ 	</h:dataTable>
+    <h:commandButton value="refresh" onclick = "refresh();" style="margin-right:5px" />
+    <h:commandButton value="next" onclick="bldEmail()" style="margin-right:5px" /> 
+	</div>
+  </h:form>
+  </body>
+</html>

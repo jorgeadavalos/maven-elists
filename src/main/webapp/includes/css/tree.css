@@ -1,0 +1,50 @@
+.tree-cell {
+    padding: 10px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: top;
+	background-color: transparent;
+	border: none;
+}
+.box {
+    width: 90px;
+    height: 48px; 
+    background-color: red;
+    display: inline-block;
+    text-align: center;
+	font-family: Arial, Helvetica;
+	font-size: 12px;
+}
+body {
+	font-family: Arial, Helvetica;
+	font-size: 12px;	
+}
+.fontsize {
+	font-family: Arial, Helvetica;
+	font-size: 12px;	
+}
+.multiselect {
+  width: 200px;
+}
+#checkboxes {
+  border: 1px #dadada solid;
+}
+#checkboxes label {
+  display: block;
+}
+#checkboxes label:hover {
+  background-color: #1e90ff;
+}
+#fadeOut {
+	left: 5px;
+	top: 5px;
+	height: 15px;
+	width: 15px;
+}
+#fadeIn {
+	left: 5px;
+	top: 5px;
+	height: 15px;
+	width: 15px;
+	display: none;
+}

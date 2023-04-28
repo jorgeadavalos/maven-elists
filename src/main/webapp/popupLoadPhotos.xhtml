@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:f="http://java.sun.com/jsf/core" 
+	  xmlns:h="http://java.sun.com/jsf/html" 
+	  xmlns:ui="http://java.sun.com/jsf/facelets" 
+	  xmlns:t="http://myfaces.apache.org/tomahawk"
+	  xmlns="http://www.w3.org/1999/xhtml">
+	  
+<f:view>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>FileUpload</title>
+    <link rel="stylesheet" href="includes/css/scrollNav.css" type="text/css"></link>
+    <link rel="stylesheet" href="includes/css/style.css" type="text/css"></link>
+    <script type="text/javascript" src="includes/js/shoplist.js"></script>
+    <script type="text/javascript" src="includes/js/shoplistSupport.js"></script>
+</head> 
+<body onload="setMsg('','infoMessage');setjsonitem()">
+	<h:form id="loadFiles" styleClass="menuCol noborder" enctype="multipart/form-data">
+	<div id="contentframe" class="multiselect center"> 
+	  <h2>Upload any file to the server</h2>
+	  <h4>&#160;&#160;&#160;&#160;1. first click 'Browser' to select the file</h4>
+	  <h4>&#160;&#160;&#160;&#160;2. next click 'upload' to send file to server </h4>
+	  <h4>&#160;</h4>
+		
+	  <h4 id="infoMessage" style="infoMessage">#{familyBean.infomsg}<br/>#{masterListBean.infomsg}</h4>
+		
+		<h:panelGrid columns="1">
+	        <h:panelGroup>
+				<t:inputFileUpload value="#{loadFilesBean.uploadedFile}" required="true" />
+				<h:commandButton value="Upload" actionListener="#{loadFilesBean.uploadItemPhoto}" />
+            </h:panelGroup>
+		</h:panelGrid> 
+	</div>
+	  <input type="hidden" value="" id="jsonitem" name="jsonitem"/> 
+	</h:form>
+	<ui:debug rendered="#{initParam['javax.faces.PROJECT_STAGE'] eq 'Development'}" hotkey="D" />
+</body>
+</f:view>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+	  xmlns:t="http://myfaces.apache.org/tomahawk">
+<head> 
+    <link rel="stylesheet" href="includes/css/scrollNav.css" type="text/css"></link>
+    <link rel="stylesheet" href="includes/css/style.css" type="text/css"></link>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="includes/js/shoplist.js"></script>
+    <script type="text/javascript" src="includes/js/shoplistSupport.js"></script>
+    <script type="text/javascript" src="includes/js/ajax.js"></script>
+    <link href="includes/css/modal.css" type="text/css" rel="stylesheet" ></link>
+</head>  
+<body onload="showNav();setMsg('','infoMessage')">
+  <h:form id="getfile" enctype="multipart/form-data">
+	<div id="contentframe" class="center">
+	  To add items to store(s) for shopping list <b>"#{familyBean.shoplist.listname}" </b><br/>
+	  using email <b>"#{familyBean.email}" </b>
+	  <br/>
+	  <h4 id="infoMessage" style="infoMessage">#{familyBean.infomsg}#{masterListBean.infomsg}</h4> 
+
+	  <h2 id="subtitle">load file with stores and shopping items </h2>
+	  <br/>
+	  <h:panelGrid columns="1">
+        <h:panelGroup>
+				<t:inputFileUpload value="#{loadFilesBean.uploadedFile}" required="true" />
+				<h:commandButton value="Upload" actionListener="#{loadFilesBean.uploadFile}" />
+        </h:panelGroup>
+	  </h:panelGrid>
+	</div>
+  </h:form>
+  <h:form id="getfile2">
+	<div id="contentframe" class="center">
+	  <h4 align="left">Enter the store's names that you shop from (one per line)</h4>
+	  <div><textarea id="storelist" rows = "10" cols = "40"/></div>
+		<div id="myModal" class="modal">
+		<div class="modal-content">
+		  <b>Enter item</b>
+		  <table id="storeTbl" border="1">
+		  </table>
+		  <button type="button" onclick="addShoppingList()" id="modalButton"><b>add items</b></button>
+		  <button type="button" onclick="exitTask()" id="modalButton"><b>exit</b></button>
+		</div>
+	    </div>
+      <h:commandButton value="Add Items" onclick="return bldItemTable();" style="margin-right:5px" />
+      <h:commandButton value="next" actionListener="#{familyBean.additemList}"  action="addShoppingList.xhtml" style="margin-right:5px" />
+	</div>
+	<input type="hidden" value="" id="jsonarray" name="jsonarray"/>
+  </h:form>
+</body>
+</html>

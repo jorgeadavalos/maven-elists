@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core" 
+	  xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets" >
+  <head>
+    <link rel="stylesheet" href="includes/css/scrollNav.css" type="text/css"></link>
+    <link rel="stylesheet" href="includes/css/style.css" type="text/css"></link>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="includes/js/shoplist.js"></script>
+    <script type="text/javascript" src="includes/js/shoplistSupport.js"></script> 
+    <script type="text/javascript" src="includes/js/ajax.js"></script> 
+  </head>  
+  <body onload="showNav('mainNavigation.xhtml');setMsg('','infoMessage');bldItemRow('addItems:admin','addItems:categoryList')"> 
+	<h:form id="addItems" styleClass="menuCol noborder">
+	<div id="contentframe" class="center">
+	  <h2>To add a new shopping Item to Stores</h2> 
+		
+	  <h4 id="infoMessage">#{masterListBean.infomsg}</h4>
+	  <ui:include src="categoryList.xhtml"/>
+	  <h:panelGrid columns="1" cellpadding="1" >
+		<h:dataTable id="admin" value="" border="2" cellpadding="5" cellspacing="2">
+			<h:column>Item name</h:column>
+			<c:forEach items="#{masterListBean.allStoresNames.toArray()}" var="key">
+				<h:column>#{key}</h:column> 
+			</c:forEach>
+		</h:dataTable>
+	  </h:panelGrid>
+	  <br/>
+	  <h:panelGroup>
+	   	<h:commandButton class="topright" value="Add item(s)" onclick="tableAsJSON('addItems:admin','jsonarray')" actionListener="#{masterListBean.addItems}"/>
+	  </h:panelGroup>
+	  <input type="hidden" value="addItems" id="formname" name="formname"/>
+	  <input type="hidden" value="" id="jsonarray" name="jsonarray"/>
+	</div>
+	</h:form>
+  </body> 
+</html> 

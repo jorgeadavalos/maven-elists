@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core" 
+	  xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets" >
+  <body> 
+	  <h:panelGrid columns="2" cellpadding="1">
+		<h:outputLabel for="categoryList" value="Categories" style="display:none"/> 
+		<h:selectOneMenu id="categoryList" onchange="" style="display:none">
+			<f:selectItem itemValue = "1" itemLabel = "Select category" /> 
+			<f:selectItem itemValue = "Produce/Nuts" itemLabel = "Produce/Nuts" /> 
+			<f:selectItem itemValue = "Meat/Fish" itemLabel = "Meat/Fish" /> 
+			<f:selectItem itemValue = "Dairy/Eggs" itemLabel = "Dairy/Eggs" /> 
+			<f:selectItem itemValue = "Frozen" itemLabel = "Frozen" /> 
+			<f:selectItem itemValue = "Prepared" itemLabel = "Prepared" /> 
+			<f:selectItem itemValue = "Cleaning" itemLabel = "Cleaning" /> 
+			<f:selectItem itemValue = "Pets" itemLabel = "Pets" /> 
+			<f:selectItem itemValue = "Prepared/canned/boxed" itemLabel = "Prepared/canned/boxed" /> 
+			<f:selectItem itemValue = "Condiments/oils/vinegars/sauces" itemLabel = "Condiments/oils/vinegars/sauces" /> 
+			<f:selectItem itemValue = "Drinks and juices/ tea" itemLabel = "Drinks and juices/ tea" /> 
+			<f:selectItem itemValue = "Deli" itemLabel = "Deli" /> 
+			<f:selectItem itemValue = "Chips/snacks/crackers" itemLabel = "Chips/snacks/crackers" /> 
+			<f:selectItem itemValue = "Dry goods and baking" itemLabel = "Dry goods and baking" /> 
+			<f:selectItem itemValue = "Toiletries" itemLabel = "Toiletries" /> 
+			<f:selectItem itemValue = "Cereal and granola" itemLabel = "Cereal and granola" /> 
+			<f:selectItem itemValue = "Rice and pasta" itemLabel = "Rice and pasta" /> 
+			<f:selectItem itemValue = "Bread" itemLabel = "Bread" /> 
+			<f:selectItem itemValue = "" itemLabel = "Other" /> 
+		 </h:selectOneMenu>  
+	  </h:panelGrid>
+  </body> 
+</html> 

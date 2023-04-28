@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" >
+<head>
+    <link rel="stylesheet" href="includes/css/scrollNav.css" type="text/css"></link>
+    <link rel="stylesheet" href="includes/css/table-style.css" type="text/css"></link>
+    <link rel="stylesheet" href="includes/css/style.css" type="text/css"></link>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="includes/js/shoplist.js"></script>
+    <script type="text/javascript" src="includes/js/shoplistSupport.js"></script>
+    <script type="text/javascript" src="includes/js/ajax.js"></script>
+</head>  
+  <body> 
+	<div id="navigationframe">
+	  <nav>
+	    <a href="#" class="nav-toggle">
+			<img class="nav-toggle" onclick="return fadeOut()" src="includes/images/bt_prev.gif" id="idFadeOut"/>
+			<img class="nav-toggle" onclick="return fadeIn()" src="includes/images/bt_next.gif" id="idFadeIn" />
+		</a>		
+	  <ul>
+		<li><a href='javascript:openPage("mainMenu.xhtml")'>Main Menu</a></li>
+		<li><a href='javascript:openPage("rebuildMasterList.xhtml")'>Rebuild Master List</a></li><br/>
+		<li><a href='javascript:initShoppingList("")'>Master List</a></li>
+		<ui:repeat value="#{masterListBean.storeShopList.keySet().toArray()}" var="store">
+		  <li><a href='javascript:initStoreList("#{store}")'>#{store}</a></li> 
+		</ui:repeat>
+	  </ul>
+	  </nav>
+	</div>
+  </body>
+</html>

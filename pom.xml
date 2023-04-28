@@ -1,0 +1,78 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>ericalist</groupId>
+  <artifactId>elists</artifactId>
+  <version>1.0</version>
+  <packaging>war</packaging>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <release>11</release>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.2.3</version>
+      </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+<!-- 	<dependency>
+         <groupId>backup</groupId>
+         <artifactId>backup</artifactId>
+         <scope>system</scope>
+         <version>1.0</version>
+         <systemPath>c:/jadAllFolders/jadJars/backup.jar</systemPath>
+	</dependency>
+ -->  
+  	<dependency>
+  		<groupId>com.sun.faces</groupId>
+  		<artifactId>jsf-impl</artifactId>
+  		<version>2.2.18</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.sun.faces</groupId>
+  		<artifactId>jsf-api</artifactId>
+  		<version>2.2.18</version>
+  	</dependency>
+ 	<dependency>
+		<groupId>com.googlecode.json-simple</groupId>
+		<artifactId>json-simple</artifactId>
+		<version>1.1</version>
+	</dependency>
+
+ <!-- https://mvnrepository.com/artifact/org.primefaces/primefaces -->
+	<dependency>
+	    <groupId>org.primefaces</groupId>
+	    <artifactId>primefaces</artifactId>
+	    <version>6.1</version>
+	</dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+	<dependency>
+	    <groupId>org.apache.poi</groupId>
+	    <artifactId>poi</artifactId>
+	    <version>4.0.1</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+	<dependency>
+	    <groupId>org.apache.poi</groupId>
+	    <artifactId>poi-ooxml</artifactId>
+	    <version>3.9</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.assoc.jad</groupId>
+	    <artifactId>lbinstance</artifactId>
+	    <version>1.0</version>
+	</dependency>
+  	
+  </dependencies>
+
+</project>

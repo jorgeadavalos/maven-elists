@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<div id="navigationframe">
+	  <nav>
+	    <a href="#" class="nav-toggle">
+			<img class="nav-toggle" onclick="return fadeOut()" src="includes/images/bt_prev.gif" id="idFadeOut"/>
+			<img class="nav-toggle" onclick="return fadeIn()" src="includes/images/bt_next.gif" id="idFadeIn" />
+		</a>
+		<ul>
+		  <li><a href="javascript:openPage('storeList.xhtml')"> Master List </a></li>
+		  <li><a href="javascript:resetopenPage('selectFamily.xhtml')">select a family </a></li>
+		  <li><a href="javascript:openPage('resetFamily.xhtml')">reset family values</a></li>
+		  <li>.</li>
+		  <li>
+		    <div class="dropbtn" >
+				<div id="plusImg1"><img height="12" width="12" src="includes/images/plus.png" onclick="expand('familyGroup',1)"/> Create shopping List</div>
+				<div id="minusImg1" style="display:none"><img height="12" width="12" src="includes/images/minus.png" onclick="expand('familyGroup',1)"/> Create shopping List</div>
+			  <div id="familyGroup" class="groups">
+				  <a class="expand" href="javascript:openPage('addFamily.xhtml')">create Root</a>
+				  <a class="expand" href="javascript:openPage('addEmails.xhtml')">Add emails</a>
+				  <a class="expand" href="javascript:openPage('loadFiles.xhtml')">add shop list from a file</a>
+			  </div>
+		    </div>
+		  </li>
+		  <li>
+		    <div class="dropbtn" >
+				<div id="plusImg2"><img height="12" width="12" src="includes/images/plus.png" onclick="expand('adminGroup',2)"/> Administrator's functions</div>
+				<div id="minusImg2" style="display:none"><img height="12" width="12" src="includes/images/minus.png" onclick="expand('adminGroup',2)"/> Administrator's functions</div>
+			  <div id="adminGroup" class="groups">
+				  <a class="expand" href="javascript:openPage('addItems.xhtml')">Add Shopping Item(s)</a>
+				  <a class="expand" href="javascript:openPage('deleteItems.xhtml')">Delete Shopping Item(s)</a>
+				  <a class="expand" href="javascript:openPage('updateItems.xhtml')">Update Shopping Item(s)</a>
+				  <a class="expand" href="javascript:openPage('categories.xhtml')">Manage Item's categories</a>
+				  <br/>
+				  <a class="expand" href="javascript:openPage('newShoppingList.xhtml')">New Shopping list</a>
+			  </div>
+		    </div>
+		  </li>
+		</ul>
+	  </nav>
+	</div>
+</html>

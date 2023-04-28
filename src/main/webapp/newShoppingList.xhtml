@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+	  xmlns:t="http://myfaces.apache.org/tomahawk">
+<head> 
+    <link rel="stylesheet" href="includes/css/scrollNav.css" type="text/css"></link>
+    <link rel="stylesheet" href="includes/css/style.css" type="text/css"></link>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="includes/js/shoplist.js"></script>
+    <script type="text/javascript" src="includes/js/shoplistSupport.js"></script>
+    <script type="text/javascript" src="includes/js/ajax.js"></script>
+</head>  
+  <body onload="fadeOut(findElement('fadeOut'));showNav();setMsg('','infoMessage')"> 
+  <h:form id="getfile" enctype="multipart/form-data">
+	<ui:include src="mainNavigation.xhtml"/>
+	<div id="contentframe" class="center">
+	  <h2>Create a new shopping list for email #{familyBean.email} </h2>
+	  <br/>
+	  <h4 id="infoMessage" style="infoMessage">#{familyBean.infomsg}</h4> 
+
+	  <h:panelGrid columns="4" cellpadding="1" >
+		<h:outputLabel for="listname" value="list name" />
+		<h:outputText value="*"/>
+		<h:inputText id="listname" value = "#{familyBean.shoplist.listname}"  size="35" required="#{true}"/>
+		<h:message for="listname" errorClass="error" showSummary="#{true}" showDetail="#{false}" />
+
+		<h:outputLabel for="email" value="email" />
+		<h:outputText value="*"/>
+		<h:inputText id="email" value = "#{familyBean.email}"  size="35" required="#{true}"/>
+		<h:message for="email" errorClass="error" showSummary="#{true}" showDetail="#{false}" /> 
+	  </h:panelGrid>
+      <h:commandButton value="next" actionListener="#{familyBean.newShoppingList}"  action="addShoppingList.xhtml" style="margin-right:5px" />
+	</div>
+  </h:form>
+  </body>
+</html>

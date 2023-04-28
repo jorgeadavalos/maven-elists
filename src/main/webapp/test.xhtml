@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" >
+<head>
+    <link rel="stylesheet" href="includes/css/scrollNav.css" type="text/css"></link>
+    <link rel="stylesheet" href="includes/css/table-style.css" type="text/css"></link>
+    <link rel="stylesheet" href="includes/css/style.css" type="text/css"></link>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="includes/js/shoplist.js"></script>
+    <script type="text/javascript" src="includes/js/shoplistSupport.js"></script>
+</head>  
+  <body onload="showNav('storeNavigation.xhtml');setMsg('','infoMessage');initShoppingList()"> 
+	<h:form id="activeLists" styleClass="menuCol noborder">
+	  <div id="contentframe" class="center">
+	    <h4 id="infoMessage" style="infoMessage">#{familyBean.infomsg}</h4>
+		<h:dataTable value="#{masterListBean.allStoresNames}" var="stores"
+  			styleClass="restoreBean-table"
+  			headerClass="restoreBean-table-header hide-header"
+  			rowClasses="restoreBean-table-odd-row,restoreBean-table-even-row"
+			columnClasses="left-aligned,left-aligned,hide-column,left-aligned" 
+			border="2" cellpadding="5" cellspacing="2"
+	>
+  			<h:column>
+  				<f:facet name="header">stores</f:facet>
+				<span onmouseover="seeFullText(this)" ondblclick="return displayDocFromLastCol(this)">
+					<h:outputText value="#{restore.name}"/>
+				</span>
+  			</h:column>
+   			</h:column>
+		</h:dataTable>
+		  <div id="selectList" class="center">
+		  </div>
+			<h:panelGroup>
+				<h:commandButton value="refresh" onclick = "return refresh('chooseItem');" style="margin-right:5px" />
+	          	<h:commandButton value="update" actionListener="#{masterListBean.updateCheckedList}" action="#{masterListBean.navigation}" style="margin-right:5px" />
+	        </h:panelGroup>
+		</div>
+		<h:outputText value="#{masterListBean.familyShopList}" escape="false"/> 
+	</h:form>
+  </body> 
+</html> 

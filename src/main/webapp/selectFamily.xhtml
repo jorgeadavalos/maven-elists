@@ -1,0 +1,44 @@
+<html lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<f:view>
+	<f:metadata>
+        <f:viewParam name="id" value="#{requestBean.tempUser.id}" />
+	</f:metadata>
+
+<head>
+<title>selectFamily</title>
+    <link rel="stylesheet" href="includes/css/scrollNav.css" type="text/css"></link>
+    <link rel="stylesheet" href="includes/css/RepHeader.css" type="text/css"></link>
+    <link rel="stylesheet" href="includes/css/style.css" type="text/css"></link>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="includes/js/shoplist.js"></script>
+    <script type="text/javascript" src="includes/js/shoplistSupport.js"></script>
+    <script type="text/javascript" src="includes/js/ajax.js"></script>
+</head>
+<body onload="showNav();setMsg('','infoMessage')">
+	<h:form id="addFamily" styleClass="menuCol noborder">
+	  <div id="contentframe" class="content center">
+		<h2>Welcome to your personal list(s) administrator</h2>
+		#{familyBean.checkURL()}
+		<h4 id="infoMessage" style="infoMessage">#{familyBean.infomsg} #{masterListBean.infomsg}</h4>
+		<h:panelGrid columns="4" cellpadding="1" >
+			<h:outputLabel for="email" value="Enter your email " />
+			<h:outputText value="*"/>
+			<h:inputText id="email" value="#{familyBean.email}" size="50"  required="#{true}" onchange="setEmailCookie(this)"/> 
+			<h:message for="email" errorClass="error" showSummary="#{true}" showDetail="#{false}" />
+		</h:panelGrid>
+		<h:panelGrid>
+			<h:panelGroup>
+				<h:commandButton value="next" actionListener="#{familyBean.familyViaEmail}"  action="#{familyBean.navigation}" style="margin-right:5px" />
+			</h:panelGroup>
+		</h:panelGrid>
+			<input type="hidden" value="addFamily" id="formname" name="formname"/>
+	  </div>
+	</h:form>
+	<ui:debug rendered="#{initParam['javax.faces.PROJECT_STAGE'] eq 'Development'}" hotkey="D" />
+</body>
+</f:view>
+</html>

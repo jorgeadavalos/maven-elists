@@ -1,0 +1,129 @@
+h2 { font-size:18px }
+
+.error { color:red }
+
+.block-text {
+	display:block;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.centered {
+	text-align:center;	
+}
+
+.left-aligned {
+	text-align:left;	
+}
+
+input[type="submit"] {
+	margin:0 4px 0 4px;
+}
+#menuCol {
+	padding-top:10px;
+	padding-left: 15px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+	border: #c6d6c7 3px solid;
+	border-top: none;
+	border-right-color: #ADC4AF;
+	border-bottom-color: #ADC4AF;
+	background-image: url(../images/cHead.jpg);
+	background-repeat: repeat-x;
+	background-position: left top;
+	z-index : 1;
+}
+#bldButton {
+	border:2px solid #000;
+	left: 0;
+	background: url(../images/hTab.gif) repeat-x center top;
+	color: #fff;
+	font-weight: bold;
+}
+#shadeDivID { 
+	opacity:1.0;
+	z-index:10;
+}
+#hideit {
+	visibility: hidden;
+	z-index:12;
+}
+#navChoice {
+  position: absolute; left: 0px; top: 0px; visibility: hidden;
+  background-color: #f4f4f4;
+  border: 2px solid #789;
+  z-index: 800;
+}
+.custline {
+	border-bottom:1px solid black;
+}
+.noborder {
+     border-style: hidden;
+}
+.center {
+    margin: auto;
+    width: 50%;
+    padding-top: 30px;
+}
+input[type=text] {
+    background-color: transparent;
+    border: 0px solid;
+    height: 20px;
+    width: 160px;
+	border-bottom-width: 1px;
+	padding-left: 2px;
+}
+.multiselect {
+  width: 200px;
+  white-space: nowrap;
+}
+label {
+    display: block;   
+}
+
+#checkboxes {
+  border: 1px #dadada solid;
+}
+.topright {
+	position: fixed; right: 150px; top: 100px;
+	background-color: #036;
+	color: #fff;
+	font-weight: bold;
+	padding: 5px;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 140px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}

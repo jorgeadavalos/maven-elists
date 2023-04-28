@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" >
+<head> 
+    <link rel="stylesheet" href="includes/css/scrollNav.css" type="text/css"></link>
+    <link rel="stylesheet" href="includes/css/style.css" type="text/css"></link>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="includes/js/shoplist.js"></script>
+    <script type="text/javascript" src="includes/js/shoplistSupport.js"></script>
+    <script type="text/javascript" src="includes/js/ajax.js"></script>
+</head>  
+  <body onload="showNav('mainNavigation.xhtml');setMsg('','infoMessage');bldItemRow('addEmails:admin')"> 
+  <h:form id="addEmails">
+	<div id="contentframe" class="center">
+		<h2>To add emails of people that will update your family shopping list</h2>
+	  <h4 id="infoMessage" style="infoMessage">#{familyBean.infomsg}</h4> 
+	  <h:panelGrid columns="4" cellpadding="1" >
+		<f:facet name="header">
+			<div align="left">Enter Emails</div>
+		</f:facet> 
+		<h:outputLabel for="emails" value="email(s)" />
+		<h:outputText value=""/>
+		<h:inputTextarea id="emails" rows = "10" cols = "40" value = "#{familyBean.emailList}">
+			<f:validator validatorId="emailValidator" />
+		</h:inputTextarea>
+		<h:message for="emails" errorClass="error" showSummary="#{true}" showDetail="#{false}" />
+
+	  </h:panelGrid>
+      <h:commandButton value="refresh" onclick = "refresh();" style="margin-right:5px" />
+      <h:commandButton value="next" actionListener="#{familyBean.addEmails}"  action="#{familyBean.navigation}" style="margin-right:5px" />
+	</div>
+  </h:form>
+  </body>
+</html>

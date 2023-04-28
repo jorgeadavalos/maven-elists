@@ -1,0 +1,24 @@
+	<div id="navigationframe">
+	  <nav>
+	    <a href="#" class="nav-toggle">
+			<img class="nav-toggle" onclick="return fadeOut()" src="includes/images/bt_prev.gif" id="fadeOut"/>
+			<img class="nav-toggle" onclick="return fadeIn()" src="includes/images/bt_next.gif" id="fadeIn" />
+		</a>
+		<ul>
+		  <li><a href="javascript:openPage('test.xhtml')">test HTML</a></li>
+		  <li><a href="javascript:openPage('loadFiles.xhtml')">load files</a></li>
+		  <li>
+		    <div class="dropbtn" >
+				<div id="plusImg"><img height="12" width="12" src="includes/images/plus.png" onclick="expand()"/> Create shopping List</div>
+				<div id="minusImg" style="display:none"><img height="12" width="12" src="includes/images/minus.png" onclick="expand()"/> Create shopping List</div>
+			  <div id="familyGroup" class="groups">
+				  <a class="expand" href="javascript:openPage('addFamily.xhtml')">create Root</a>
+				  <a class="expand" href="javascript:openPage('addEmails.xhtml')">Add emails</a>
+				  <a class="expand" href="javascript:openPage('test.xhtml')">add shopping entries</a>
+			  </div>
+		    </div>
+		  </li>
+		  <li><a href="javascript:openPage('selectFamily.xhtml')">select a family </a></li>
+		</ul>
+	  </nav>
+	</div>

@@ -1,0 +1,41 @@
+#Layer1 {
+    position: absolute; left:0; top:0;
+    background: url(../images/login_bkgr2.jpg) no-repeat left top;
+}
+#logo {
+    position:absolute; left:400px; top:50px;
+    width:84px; height:84px;
+}
+#banner {
+    position:absolute; left: 420px; top:235px;
+    font-size: 170%;
+    color:#888;
+}
+#controls {
+    position:absolute; left: 420px; top:275px;
+    color: #fff;
+    font-size: 85%;
+    font-weight: bold;
+}
+#loginError {
+    font-size: 10pt;
+    font-weight: normal;
+    color: red;
+    padding-left: 18px;
+    background: url(../images/rederror.gif) no-repeat left;
+    background-color : #F0F0F0;
+    text-align: left;
+
+    position: absolute;
+    top: 150px;
+    left: 400px;
+    width: 450px;
+	z-index : 100;
+}
+.passwordChange {
+	display: none;
+}
+.loginbutton {
+	font-size: 85%;
+    font-weight: bold;
+}
